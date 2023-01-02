@@ -39,19 +39,15 @@ for image_name in sorted_files:
         
         # DOWNSIZING IMAGE
         # calculate dimensions for new image shape = [rows/height, col/width]
-        # print('\nOriginal Dimensions (h, w):', img.shape)
         scale_percent = (num_cols * 1500)/img.shape[1] #1500 is number of pixels wide
         new_h = int(img.shape[0] * scale_percent)
         new_w = int(img.shape[1] * scale_percent)
         new_dim = (new_w, new_h)
-
-        # print('\nDownsizing', image_name, '\n')
+        
         resized_img = cv2.resize(img, new_dim, interpolation = cv2.INTER_AREA)
         cv2.imwrite(os.path.join(new_folder, '{}_{}.{}'.format(image_name[:-4], 'Resized', 'png')), resized_img)
-        # print ('Resized Dimensions (h, w):', resized_img.shape, '\n')
         
         #SPLITTING IMAGE W/OVERLAP
-        # print ('Splitting', image_name, '\n')
         Y_points = divide_points(num_rows, new_h)
         X_points = divide_points(num_cols, new_w)
         
@@ -77,7 +73,5 @@ for image_name in sorted_files:
                 cropped_img = resized_img[start_row:end_row, start_col:end_col]
                 isSaved = cv2.imwrite(os.path.join(new_folder, '{}_{}.{}'.format(name, 's'+str(img_num).zfill(3), 'png')), cropped_img)
                 img_num +=1
-                # cv2.imshow('image',cropped_img)
-                # cv2.waitKey(0)
                 
         print("Completed processing", image_name, "\n")

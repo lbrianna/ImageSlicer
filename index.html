@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Image Slicer</title>
+	<meta rel="stylesheet" href="styles.css">
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<nav id="nav-bar">
+		<header>ImageSlicer Documentation</header>
+		<ul>
+			<li>
+				<a class="nav-link" href="#introduction">Introduction</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#download">Download</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#instructions">Instructions</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#atlas_registration">Atlas Registration</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#contact_me">Contact Me</a>
+			</li>
+		</ul>
+	</nav>
+	<main id="main-doc">
+		<section class="main-section" id="introduction">
+			<header>
+				<h1>Introduction</h1>
+			</header>
+			<p>This code was created with the purpose of auto-cropping images of brain sections to register with the Allen Mouse Brain Atlas. It takes an image, asks for user input about the number of rows and columns and slices into even parts. Everything can be customized directly in the code.</p>
+			<p>Before running the code, you should make sure that CV2 is installed on the computer. You can do this by opening the terminal and running the following: <code>"pip install opencv-python"</code></p>
+		</section>
+		<section class="main-section" id="download">
+			<header>
+				<h1>Download</h1>
+			</header>
+			<p>This repository can be cloned through the following steps:</p>
+			<ol>
+				<li>Open <a target="_blank" href=" https://github.com/lbrianna/ImageSlicer">this link</a> to access the repository.</li>
+				<li>Above the list of files, click "Code".</li>
+				<li>Copy the URL for the repository.</li>
+				<li>Open Terminal and change the working directory to where you want the cloned directory.</li>
+				<li>Type <code>git clone</code> and then paste the URL from earlier.</li>
+				<li>Press enter to create your local clone</li>
+			</ol>
+			<p>More specific instructions with images can be found <a target="_blank" href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui">GitHub Docs.</a></p>
+		</section>
+		<section class="main-section" id="instructions">
+			<header>
+				<h1>Instructions</h1>
+			</header>
+			<ol>
+				<li>Create a folder with TIF images of the brain sections. Use different folders for different brains. Rename the files to the following format: {YYYY.MM.DD}_{Identification}_{Slide #}.tif (e.g. 2022.07.22_S8192-488_Slide1.tif)</li>
+				<li>Copy folder path</li>
+				<li>Run the code and answer the prompts</li>
+				<li>You can customize input type (line 16), output width (line 43), image overlap (line 59), and output type (line 78)</li>
+				<ol style="list-style-type: lower-alpha;">
+					<li class=" sublist">Line 16: <code>if (image_name.endswith('.tif')):</code></li>
+					<li class="sublist">Line 43: <code>scale_percent = (num_cols * 1500)/img.shape[1]</code></li>
+					<li class="sublist">Line 59: <code>overlap = 0.12/2</code></li>
+					<li class="sublist">Line 78: <code>isSaved = cv2.imwrite(os.path.join(new_folder, '{}_{}.{}'.format(name, 's'+str(img_num).zfill(3), 'png')), cropped_img)</code></li>
+				</ol>
+			</ol>
+			<p>You can ignore the first step if you are not planning to register sections to the Allen Mouse Brain Atlas.</p>
+		</section>
+		<section class="main-section" id="atlas_registration">
+			<header>
+				<h1>Atlas Registration</h1>
+				<p> It can be challenging and time-consuming to consistently register sections to the Allen Brain Atlas. However, there are several resources available:</p>
+				<p>The cropped images can be uploaded to <a href="https://www.deepslice.com.au/">DeepSlice</a>, which uses machine learning to automatically align sections. Then, coordinates can be downloaded through an XML file, which is compatible with <a href="https://quicknii.readthedocs.io/en/latest/">QuickNII</a>. QuickNII allows you to see the sections overlayed with the Allen Brain Atlas and make linear adjustments while viewing coordinates.</p>
+				<p>If you would like to make non-linear adjustments, then you can download the JSON file from QuickNII and upload it to <a href="https://visualign.readthedocs.io/en/latest/">VisuAlign</a>. This software allows you to drag specific parts of the atlas to match the seciton.</p>
+			</header>
+		</section>
+		<section class="main-section" id="contact_me">
+			<header>
+				<h1>Contact Me</h1>
+			</header>
+			<p>Hi there! I'm Brianna, a Math & Computer Science student at Boston University with a passion for software engineering and technical project management. I'm always looking for ways to expand my skill set, and I have a diverse range of professional experience. This was made for the The Chinfei Chen Lab at Boston Children's Hospital in September 2022.</p>
+			<p>If you would like to contact me, you can reach me through <a href="mailto:briannali.work@gmail.com">email</a> or <a href="https://www.linkedin.com/in/lbrianna/">LinkedIn</a></p>
+			<p>You can also view more of my projects on my <a href="https://github.com/lbrianna">GitHub</a>.</p>
+		</section>
+	</main>
+</body>
+
+</html>

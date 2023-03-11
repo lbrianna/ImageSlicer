@@ -2,7 +2,7 @@
 
 This code was created with the purpose of auto-cropping images of brain sections to register with the Allen Mouse Brain Atlas. It takes an image, asks for user input about the number of rows and columns and slices into even parts. Everything can be customized directly in the code. The alignment code is private.
 
-Before running the code, you should make sure that CV2 is installed on the computer. You can do this by opening the terminal and runnning "pip install opencv-python"
+Before running the code, you should make sure that CV2 is installed on the computer. You can do this by opening the terminal and runnning `pip install opencv-python`
 
 ## Documentation
 You can also view this information at: https://lbrianna.github.io/ImageSlicerDocumentation/

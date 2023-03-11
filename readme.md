@@ -7,7 +7,7 @@ Before running the code, you should make sure that CV2 is installed on the compu
 ## Documentation
 You can also view this information at: https://lbrianna.github.io/ImageSlicerDocumentation/
 ## Instructions
-1. Create a folder with TIF images of the brain sections. Use different folders for different brains. Rename the files to the following format: {YYYY.MM.DD}_{Identification}_{Slide #}.tif (Example: 2022.07.22_S8192-488_Slide1.tif)
+1. Create a folder with TIF images of the brain sections. Use different folders for different brains. Rename the files to the following format: `{YYYY.MM.DD}_{Identification}_{Slide #}.tif (Example: 2022.07.22_S8192-488_Slide1.tif)`
 2. Copy folder path
 3. Run the code and answer the prompts
 4. You can customize input type (line 16), image width (line 43), image overlap (line 59), and output type (line 78)
